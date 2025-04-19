@@ -11,10 +11,17 @@ import androidx.fragment.app.activityViewModels
 import dk.itu.soundscape.R
 import dk.itu.soundscape.data.model.Entry
 import dk.itu.soundscape.viewmodel.EntryViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+
+
 
 class AddEntryFragment : Fragment() {
 
-    private val viewModel: EntryViewModel by activityViewModels()
+    private val viewModel: EntryViewModel by activityViewModels {
+        ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +41,9 @@ class AddEntryFragment : Fragment() {
                 viewModel.addEntry(entry)
                 moodInput.text.clear()
                 songInput.text.clear()
+
+                findNavController().navigate(R.id.action_addEntryFragment_to_entryListFragment)
+
             }
         }
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addEntryFragment">
+
+    <fragment
+        android:id="@+id/addEntryFragment"
+        android:name="dk.itu.soundscape.ui.fragments.AddEntryFragment"
+        android:label="AddEntryFragment" >
+        <action
+            android:id="@+id/action_addEntryFragment_to_entryListFragment"
+            app:destination="@id/entryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entryListFragment"
+        android:name="dk.itu.soundscape.ui.fragments.EntryListFragment"
+        android:label="EntryListFragment" />
+</navigation>
